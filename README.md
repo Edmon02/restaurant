@@ -1,64 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Restaurant Management System  
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+[![PHP](https://img.shields.io/badge/PHP-7.x%2B-777BB4?logo=php)](https://php.net)  
+[![Laravel](https://img.shields.io/badge/Laravel-5.x%2B-FF2D20?logo=laravel)](https://laravel.com)  
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A full-featured restaurant management system built with Laravel, supporting table reservations, menu management, and admin workflows.  
 
-## About Laravel
+## 📖 Description  
+This project is a **restaurant management platform** designed to streamline operations for small-to-medium restaurants. Key features include:  
+- **Table reservations** with time/date selection and status tracking (e.g., "pending," "confirmed").  
+- **Menu management** (categories, items, and pricing).  
+- **Admin dashboard** for staff to manage reservations, tables, and menus.  
+- **User authentication** (login, registration, password reset).  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Built 3 years ago, this project uses stable versions of Laravel and PHP 7.x. While not on the latest stack, it remains functional and can be modernized incrementally (see [Roadmap](#-roadmap)).  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tech Stack  
+- **Backend**: PHP 7.x, Laravel 5.x  
+- **Frontend**: Blade templates, Tailwind CSS (via `tailwind.config.js`), JavaScript  
+- **Database**: MySQL (via Laravel migrations)  
+- **Tools**: Composer, Artisan CLI  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Quick Start  
+### Prerequisites  
+- PHP 7.x, MySQL, Composer  
 
-## Learning Laravel
+### Installation  
+```bash  
+git clone https://github.com/your/restaurant-system.git  
+cd restaurant-system  
+composer install  
+cp .env.example .env  
+php artisan key:generate  
+```  
+Configure `.env` with your database credentials, then run:  
+```bash  
+php artisan migrate --seed  
+php artisan serve  
+```  
+Access the app at `http://localhost:8000`. Admin credentials are seeded by default (check `database/seeders/Admin.php`).  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📂 Project Structure  
+```  
+restaurant/  
+├── app/                # Core Laravel app  
+│   ├── Http/           # Controllers (Admin, Auth, Frontend)  
+│   ├── Models/         # Eloquent models (Reservation, Menu, Table)  
+│   └── ...  
+├── database/           # Migrations and seeders  
+├── resources/views/    # Blade templates  
+│   ├── admin/          # Admin dashboard views  
+│   ├── auth/           # Auth pages (login, register)  
+│   └── ...  
+├── routes/             # Web and API routes  
+└── public/             # Compiled assets (CSS/JS)  
+```  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🤝 Contributing  
+Contributions are welcome! Given the project’s age, focus on:  
+1. **Modernization**: Upgrading to Laravel 8+/PHP 8+.  
+2. **Testing**: Adding PHPUnit tests in `tests/Feature`.  
+3. **UI/UX**: Improving Blade templates with modern Tailwind.  
 
-## Laravel Sponsors
+**Steps**:  
+```bash  
+git checkout -b feature/your-feature  
+php artisan test  # Run tests before submitting PRs  
+```  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 📜 License  
+MIT License. See [LICENSE](LICENSE). Permissive and ideal for community-driven improvements.  
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🌟 Roadmap  
+- [ ] Upgrade to Laravel 8+/PHP 8+.  
+- [ ] Add API endpoints (e.g., for mobile apps).  
+- [ ] Dockerize for easier setup.
